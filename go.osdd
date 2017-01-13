@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Go</ShortName>
+  <Description>Go</Description>
+  <Url type="text/html" method="get" template="http://go/{searchTerms}"/>
+  <Url type="application/x-suggestions+xml" rel="suggestions" method="get" template="http://go/suggest.php?query={searchTerms}" />
+</OpenSearchDescription>

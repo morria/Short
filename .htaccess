@@ -1,0 +1,22 @@
+DirectoryIndex index.php
+
+# remove the next 3 lines if you see a 500 server error
+php_flag register_globals off
+php_flag magic_quotes_gpc off
+php_value display_errors 0
+
+FileETag none
+ServerSignature Off
+
+Options All -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # RewriteCond %{HTTP_HOST} !^et.sy [NC]
+    # RewriteRule (.*) http://et.sy/$1 [R=301,L]
+    RewriteRule ^shorten/(.*)$ shorten.php?longurl=$1 [L]
+    RewriteRule ^leaderboard$ leaderboard.php [L]
+    RewriteRule ^delete/([0-9a-zA-Z_+-]{1,24})$ delete.php?url=$1 [L]
+    RewriteRule ^([0-9a-zA-Z_\/\-]{1,24})(.jpg|.gif|.png)?$ redirect.php?url=$1 [L]
+    RewriteRule ^([0-9a-zA-Z_\/\-+]{1,24})$ stats.php?url=$1 [L]
+</IfModule>
